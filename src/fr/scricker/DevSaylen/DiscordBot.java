@@ -44,10 +44,13 @@ public class DiscordBot extends ListenerAdapter {
                             Objects.requireNonNull(config.getString("Message.CodeGive"))
                                     .replace("%code%", user.getString("Code")
                                     )).queue();
+                    msg.getChannel().sendMessage(Objects.requireNonNull(config.getString("Message.MpSend"))).queue();
+                    return;
                 }
             } catch (SQLException Assess) {
                 Assess.printStackTrace();
             }
+            msg.getChannel().sendMessage(Objects.requireNonNull(config.getString("Message.MpSend"))).queue();
             String r = Random();
             member.getUser().openPrivateChannel().complete().sendMessage(
                     Objects.requireNonNull(config.getString("Message.CodeGive"))
@@ -62,6 +65,7 @@ public class DiscordBot extends ListenerAdapter {
             } catch (SQLException es) {
                 es.printStackTrace();
             }
+            return;
         }
         try {
             if (userValide(member.getId()) && e.getChannel().getId().equals(config.getString("Channel_id.Message"))) {
@@ -71,6 +75,8 @@ public class DiscordBot extends ListenerAdapter {
                                 .replace("%user%", member.getEffectiveName())
                                 .replace("%message%", message))
                 );
+            } else if (!userValide(member.getId()) && e.getChannel().getId().equals(config.getString("Channel_id.Message"))) {
+                msg.delete().queue();
             }
         } catch (SQLException ess) {
             ess.printStackTrace();
@@ -104,7 +110,6 @@ public class DiscordBot extends ListenerAdapter {
         String alphaNumeric = upperAlphabet + lowerAlphabet + numbers;
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
-        int length = 10;
 
         for (int i = 0; i < 6; i++) {
 

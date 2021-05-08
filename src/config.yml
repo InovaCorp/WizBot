@@ -21,6 +21,7 @@ Message:
   BadUsage: ">>> /discord link <code>"
   Update: "Compte discord update"
   BadCode: ">>> Code invalide"
+  MpSend: "Une commande à exécuter dans le jeu vous a été envoyée en mp."
 
 advancementMap:
   "story/mine_stone": "L'âge de pierre"
