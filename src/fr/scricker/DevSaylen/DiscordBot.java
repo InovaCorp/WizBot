@@ -77,6 +77,20 @@ public class DiscordBot extends ListenerAdapter {
                 );
             } else if (!userValide(member.getId()) && e.getChannel().getId().equals(config.getString("Channel_id.Message"))) {
                 msg.delete().queue();
+                String r = Random();
+                member.getUser().openPrivateChannel().complete().sendMessage(
+                        Objects.requireNonNull(config.getString("Message.CodeGive"))
+                                .replace("%code%", r)
+                ).queue();
+                try {
+                    PreparedStatement statement = this.Main.getConnection().prepareStatement("INSERT INTO Users(DiscordId, Code, Valided) Values(?, ?, ?);");
+                    statement.setString(1, member.getId());
+                    statement.setString(2, r);
+                    statement.setBoolean(3, false);
+                    statement.execute();
+                } catch (SQLException es) {
+                    es.printStackTrace();
+                }
             }
         } catch (SQLException ess) {
             ess.printStackTrace();
@@ -121,4 +135,5 @@ public class DiscordBot extends ListenerAdapter {
         }
         return sb.toString();
     }
+
 }

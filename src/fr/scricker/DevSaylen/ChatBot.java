@@ -38,7 +38,7 @@ public class ChatBot implements Listener {
         if (display == null) return;
         MessageEmbed eb = new EmbedBuilder()
                 .setAuthor(
-                        config.getString("Message.Death")
+                        config.getString("Message.Achievement")
                                 .replace("%player%", e.getPlayer().getName())
                                 .replace("%achievement%", display),
                         null,
