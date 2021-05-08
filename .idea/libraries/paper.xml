@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="paper">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/dev/paper.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Downloads/dev/paper.jar!/" />
+    </SOURCES>
+  </library>
+</component>

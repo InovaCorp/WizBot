@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="WizBot:jar">
+    <output-path>$USER_HOME$/Downloads/dev/plugins</output-path>
+    <root id="archive" name="PluginsS.jar">
+      <element id="module-output" name="WizBot" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/plugin.yml" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/JDA-4.2.1_253-withDependencies.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

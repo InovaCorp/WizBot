@@ -1,0 +1,8 @@
+main: fr.scricker.DevSaylen.Main
+version: 0.1.0
+author: scricker
+name: WizBot
+commands:
+  discord:
+    usage: "/discord link <code>"
+    description: "Permet de relier sont compte discord a son compte minecraft"
